@@ -12,6 +12,37 @@ export class PropostaListComponent implements OnInit {
   proposta: Observable<Proposta[]>;
 
   constructor(private propostaService: PropostaService) {}
+  
+
+    public sexoClass = [
+        {
+            name: "Masculino",
+            gender: "M"
+        },
+        {
+            name: "Feminino",
+            gender: "F"
+        }
+	]
+		
+    public estadoCivilClass = [
+        {
+            name: "CASADO(A)",
+            marital: "CA"
+        },
+        {
+            name: "DIVORCIADO(A)",
+            marital: "DI"
+        },
+        {
+            name: "SOLTEIRO(A)",
+            marital: "SO"
+        },
+        {
+            name: "VIÚVO(A)",
+            marital: "VI"
+        }		
+	]		
 
   ngOnInit() {
     this.reloadData();

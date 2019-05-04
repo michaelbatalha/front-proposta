@@ -10,7 +10,7 @@
                     <th>Nome</th>
 					<th>CPF</th>
 					<th>Idade</th>
-					<th>Sexo</th>
+					<th>Sexo45</th>
 					<th>Estado Civil</th>
 					<th>UF</th>
 					<th>Dependentes</th>
@@ -21,13 +21,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let propostas of proposta | async">
+                <tr *ngFor="let propostas of proposta | async" >
                     <td>{{propostas.id}}</td>
 					<td>{{propostas.nome}}</td>
 					<td>{{propostas.cpf}}</td>
 					<td>{{propostas.idade}}</td>
-					<td>{{propostas.sexo}}</td>
-					<td>{{propostas.estado_civil}}</td>
+					<td>
+						<ng-container *ngFor="let sexo of sexoClass">  
+							<tr *ngIf="sexo.gender == propostas.sexo">{{sexo.name}}</tr>
+						</ng-container>  					
+					</td>
+					<td>
+						<ng-container *ngFor="let estado of estadoCivilClass">  
+							<tr *ngIf="estado.marital == propostas.estado_civil">{{estado.name}}</tr>
+						</ng-container>  					
+					</td>					
+					
 					<td>{{propostas.estado}}</td>
 					<td>{{propostas.dependentes}}</td>
 					<td>{{propostas.renda}}</td>
