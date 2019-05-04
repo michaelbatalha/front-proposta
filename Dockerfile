@@ -16,11 +16,11 @@
 
 
 FROM node:11.6.0-alpine AS builder
-COPY . ./angular6-springboot-client
-WORKDIR /angular6-springboot-client
+COPY . ./front-propostacredito
+WORKDIR /front-propostacredito
 RUN npm i
 RUN $(npm bin)/ng build --prod
 
 FROM nginx:1.15.8-alpine
-COPY --from=builder /angular6-springboot-client/dist/angular6-springboot-client/ /usr/share/nginx/html
+COPY --from=builder /front-propostacredito/dist/front-propostacredito/ /usr/share/nginx/html
 

@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to angular6-springboot-client!');
+    expect(page.getTitleText()).toEqual('Welcome to front-propostacredito!');
   });
 
   afterEach(async () => {
